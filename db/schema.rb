@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_02_21_141101) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "accounts", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_02_21_141101) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.integer "account_id"
+    t.bigint "account_id"
     t.string "name"
     t.string "address"
     t.integer "price"
